@@ -1,16 +1,6 @@
-import { motion } from 'framer-motion';
-import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
-
-const skills = [
-  { name: 'TypeScript', level: 95, trend: 'up', category: 'Languages' },
-  { name: 'React', level: 92, trend: 'up', category: 'Frontend' },
-  { name: 'Node.js', level: 88, trend: 'stable', category: 'Backend' },
-  { name: 'Python', level: 85, trend: 'up', category: 'Languages' },
-  { name: 'PostgreSQL', level: 82, trend: 'up', category: 'Database' },
-  { name: 'AWS', level: 78, trend: 'up', category: 'Cloud' },
-  { name: 'Docker', level: 80, trend: 'stable', category: 'DevOps' },
-  { name: 'GraphQL', level: 75, trend: 'up', category: 'API' },
-];
+import { motion } from "framer-motion";
+import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { SKILL_METRICS } from "@/constants/info";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,7 +22,7 @@ export function SkillsSection() {
     <section className="py-24 bg-card/50" id="skills">
       <div className="container">
         <div className="section-header">SKILL_METRICS</div>
-        
+
         <h2 className="font-mono text-3xl md:text-4xl font-bold mb-8">
           Technical <span className="text-primary">Proficiency</span>
         </h2>
@@ -53,14 +43,18 @@ export function SkillsSection() {
           </div>
 
           {/* Table rows */}
-          {skills.map((skill, index) => (
+          {SKILL_METRICS.map((skill, index) => (
             <motion.div
               key={skill.name}
               variants={itemVariants}
               className="grid grid-cols-12 gap-4 px-4 py-3 border-b border-border/50 data-row items-center"
             >
-              <div className="col-span-4 font-mono font-medium">{skill.name}</div>
-              <div className="col-span-2 font-mono text-xs text-muted-foreground">{skill.category}</div>
+              <div className="col-span-4 font-mono font-medium">
+                {skill.name}
+              </div>
+              <div className="col-span-2 font-mono text-xs text-muted-foreground">
+                {skill.category}
+              </div>
               <div className="col-span-4">
                 <div className="flex items-center gap-3">
                   <div className="flex-1 h-2 bg-secondary rounded-full overflow-hidden">
@@ -72,7 +66,9 @@ export function SkillsSection() {
                       transition={{ duration: 1, delay: index * 0.1 }}
                     />
                   </div>
-                  <span className="font-mono text-sm text-primary w-12">{skill.level}%</span>
+                  <span className="font-mono text-sm text-primary w-12">
+                    {skill.level}%
+                  </span>
                 </div>
               </div>
               <div className="col-span-2 flex justify-end">
@@ -87,7 +83,7 @@ export function SkillsSection() {
 }
 
 function TrendIndicator({ trend }: { trend: string }) {
-  if (trend === 'up') {
+  if (trend === "up") {
     return (
       <div className="flex items-center gap-1 text-primary">
         <TrendingUp className="w-4 h-4" />
@@ -95,7 +91,7 @@ function TrendIndicator({ trend }: { trend: string }) {
       </div>
     );
   }
-  if (trend === 'down') {
+  if (trend === "down") {
     return (
       <div className="flex items-center gap-1 text-destructive">
         <TrendingDown className="w-4 h-4" />

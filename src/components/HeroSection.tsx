@@ -1,11 +1,12 @@
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { PERSONAL_INFO } from "@/constants/info";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen pt-24 grid-pattern">
       <div className="absolute inset-0 scanlines opacity-50" />
-      
+
       <div className="container relative z-10 flex flex-col justify-center min-h-[calc(100vh-6rem)] py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,23 +23,24 @@ export function HeroSection() {
 
           {/* Name display */}
           <h1 className="font-mono text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-            <span className="text-foreground">ALEX</span>
-            <span className="text-primary text-glow-primary"> CHEN</span>
+            <span className="text-foreground">{PERSONAL_INFO.firstName}</span>
+            <span className="text-primary text-glow-primary">
+              {" "}
+              {PERSONAL_INFO.lastName}
+            </span>
           </h1>
 
           {/* Title */}
           <div className="flex items-center gap-3 mb-8">
             <span className="status-online" />
             <h2 className="font-mono text-xl md:text-2xl text-muted-foreground">
-              Full-Stack Developer
+              {PERSONAL_INFO.title}
             </h2>
           </div>
 
           {/* Bio */}
           <p className="text-lg text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            Building high-performance systems and elegant interfaces. 
-            Specializing in real-time applications, distributed systems, 
-            and turning complex problems into clean code.
+            {PERSONAL_INFO.bio}
           </p>
 
           {/* Quick stats */}
@@ -58,11 +60,23 @@ export function HeroSection() {
               <span className="text-primary">VIEW PORTFOLIO</span>
               <ArrowUpRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
-            
+
             <div className="flex gap-2">
-              <SocialLink href="https://github.com" icon={Github} label="GitHub" />
-              <SocialLink href="https://linkedin.com" icon={Linkedin} label="LinkedIn" />
-              <SocialLink href="mailto:alex@example.com" icon={Mail} label="Email" />
+              <SocialLink
+                href={PERSONAL_INFO.github}
+                icon={Github}
+                label="GitHub"
+              />
+              <SocialLink
+                href={PERSONAL_INFO.linkedin}
+                icon={Linkedin}
+                label="LinkedIn"
+              />
+              <SocialLink
+                href={`mailto:${PERSONAL_INFO.email}`}
+                icon={Mail}
+                label="Email"
+              />
             </div>
           </div>
         </motion.div>
@@ -71,35 +85,39 @@ export function HeroSection() {
   );
 }
 
-function StatCard({ 
-  label, 
-  value, 
-  change, 
-  warning = false 
-}: { 
-  label: string; 
-  value: string; 
+function StatCard({
+  label,
+  value,
+  change,
+  warning = false,
+}: {
+  label: string;
+  value: string;
   change: string;
   warning?: boolean;
 }) {
   return (
     <div className="terminal-card p-4">
       <div className="metric-label">{label}</div>
-      <div className={`metric-value ${warning ? 'text-warning' : ''}`}>{value}</div>
-      <div className={`font-mono text-xs ${warning ? 'text-warning' : 'text-primary'}`}>
+      <div className={`metric-value ${warning ? "text-warning" : ""}`}>
+        {value}
+      </div>
+      <div
+        className={`font-mono text-xs ${warning ? "text-warning" : "text-primary"}`}
+      >
         {change}
       </div>
     </div>
   );
 }
 
-function SocialLink({ 
-  href, 
-  icon: Icon, 
-  label 
-}: { 
-  href: string; 
-  icon: React.ElementType; 
+function SocialLink({
+  href,
+  icon: Icon,
+  label,
+}: {
+  href: string;
+  icon: React.ElementType;
   label: string;
 }) {
   return (

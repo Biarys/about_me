@@ -10,11 +10,13 @@ export const TICKER_ITEMS = [
 
 // personal info for HeroSection and ContactSection
 export const PERSONAL_INFO = {
-  name: "Biarys Saktaganov",
+  firstName: "Biarys",
+  lastName: "Saktaganov",
   title: "Data Engineer",
-  bio: "Passionate about distributed computing. Building scalable, reliable data pipelines and analytics solutions. Specializing in ETL/ELT, real-time streaming, data modeling, and enabling data-driven decisions.",
-  //   bio: "Building scalable, reliable data infrastructures and analytics pipelines. Specializing in ETL/ELT, real-time streaming, data modeling, and enabling data-driven decisions.",
+  bio: "Building scalable, reliable data infrastructures and analytics pipelines. Specializing in real-time and batch processing, distributed systems, and turning complex problems into clean code.",
   location: "Toronto, Canada (Remote OK)",
+  github: "https://github.com/Biarys",
+  linkedin: "https://linkedin.com/in/biarys",
   email: "sbiarys@gmail.com",
   years_of_experience: 5,
   projects_completed: 20,

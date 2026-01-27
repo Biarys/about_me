@@ -1,65 +1,19 @@
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, Star, GitFork } from 'lucide-react';
-
-const projects = [
-  {
-    id: 'PROJ-001',
-    name: 'Trading Bot Framework',
-    description: 'High-frequency trading bot with ML-powered predictions and real-time market analysis.',
-    tech: ['Python', 'TensorFlow', 'Redis', 'WebSocket'],
-    stars: 1243,
-    forks: 234,
-    status: 'ACTIVE',
-    change: '+156%',
-    link: 'https://github.com',
-  },
-  {
-    id: 'PROJ-002',
-    name: 'Real-time Analytics Dashboard',
-    description: 'Live metrics visualization platform processing 10M+ events per day.',
-    tech: ['React', 'D3.js', 'ClickHouse', 'Kafka'],
-    stars: 892,
-    forks: 167,
-    status: 'ACTIVE',
-    change: '+89%',
-    link: 'https://github.com',
-  },
-  {
-    id: 'PROJ-003',
-    name: 'Distributed Task Queue',
-    description: 'Fault-tolerant job processing system with automatic scaling and retry logic.',
-    tech: ['Go', 'PostgreSQL', 'gRPC', 'Docker'],
-    stars: 567,
-    forks: 89,
-    status: 'MAINTAINED',
-    change: '+45%',
-    link: 'https://github.com',
-  },
-  {
-    id: 'PROJ-004',
-    name: 'API Gateway Service',
-    description: 'Rate-limited, authenticated gateway handling 50K+ requests per second.',
-    tech: ['Rust', 'Redis', 'OpenAPI', 'K8s'],
-    stars: 423,
-    forks: 56,
-    status: 'ACTIVE',
-    change: '+112%',
-    link: 'https://github.com',
-  },
-];
+import { motion } from "framer-motion";
+import { ExternalLink, Github, Star, GitFork } from "lucide-react";
+import { PROJECTS } from "@/constants/info";
 
 export function ProjectsSection() {
   return (
     <section className="py-24" id="projects">
       <div className="container">
         <div className="section-header">PORTFOLIO_HOLDINGS</div>
-        
+
         <h2 className="font-mono text-3xl md:text-4xl font-bold mb-8">
           Featured <span className="text-primary">Projects</span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+          {PROJECTS.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -71,17 +25,21 @@ export function ProjectsSection() {
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <span className="font-mono text-xs text-muted-foreground">{project.id}</span>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {project.id}
+                  </span>
                   <h3 className="font-mono text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {project.name}
                   </h3>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className={`font-mono text-xs px-2 py-1 rounded ${
-                    project.status === 'ACTIVE' 
-                      ? 'bg-primary/20 text-primary' 
-                      : 'bg-secondary text-muted-foreground'
-                  }`}>
+                  <span
+                    className={`font-mono text-xs px-2 py-1 rounded ${
+                      project.status === "ACTIVE"
+                        ? "bg-primary/20 text-primary"
+                        : "bg-secondary text-muted-foreground"
+                    }`}
+                  >
                     {project.status}
                   </span>
                 </div>
@@ -115,9 +73,11 @@ export function ProjectsSection() {
                     <GitFork className="w-4 h-4" />
                     <span className="font-mono text-sm">{project.forks}</span>
                   </div>
-                  <span className="font-mono text-sm text-primary">{project.change}</span>
+                  <span className="font-mono text-sm text-primary">
+                    {project.change}
+                  </span>
                 </div>
-                
+
                 <a
                   href={project.link}
                   target="_blank"

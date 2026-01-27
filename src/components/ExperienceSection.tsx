@@ -1,68 +1,13 @@
-import { motion } from 'framer-motion';
-import { TrendingUp, TrendingDown, Building2, Calendar, ArrowRight } from 'lucide-react';
-
-const experiences = [
-  {
-    id: 'TXN-2023-001',
-    company: 'TechCorp Inc.',
-    role: 'Senior Full-Stack Developer',
-    type: 'LONG',
-    status: 'ACTIVE',
-    entry: '2023-01',
-    exit: 'Present',
-    duration: '2y+',
-    performance: '+156%',
-    description: 'Leading development of microservices architecture and real-time data pipelines.',
-    highlights: ['Team Lead', 'System Design', 'Mentorship'],
-  },
-  {
-    id: 'TXN-2021-002',
-    company: 'StartupX',
-    role: 'Full-Stack Developer',
-    previousRole: 'Junior Developer',
-    type: 'LONG',
-    status: 'CLOSED',
-    entry: '2021-03',
-    exit: '2022-12',
-    duration: '1y 9m',
-    performance: '+89%',
-    description: 'Built scalable e-commerce platform handling 100K+ daily transactions.',
-    highlights: ['Promotion', 'React', 'Node.js'],
-  },
-  {
-    id: 'TXN-2019-003',
-    company: 'Agency Digital',
-    role: 'Frontend Developer',
-    type: 'LONG',
-    status: 'CLOSED',
-    entry: '2019-06',
-    exit: '2021-02',
-    duration: '1y 8m',
-    performance: '+67%',
-    description: 'Developed responsive web applications for Fortune 500 clients.',
-    highlights: ['Client Work', 'Vue.js', 'Performance'],
-  },
-  {
-    id: 'TXN-2018-004',
-    company: 'CodeLab Academy',
-    role: 'Junior Developer',
-    type: 'LONG',
-    status: 'CLOSED',
-    entry: '2018-01',
-    exit: '2019-05',
-    duration: '1y 4m',
-    performance: '+45%',
-    description: 'Started career building internal tools and learning best practices.',
-    highlights: ['First Role', 'Python', 'SQL'],
-  },
-];
+import { motion } from "framer-motion";
+import { TrendingUp, TrendingDown, Building2, Calendar } from "lucide-react";
+import { JOB_EXPERIENCE } from "@/constants/info";
 
 export function ExperienceSection() {
   return (
     <section className="py-24" id="experience">
       <div className="container">
         <div className="section-header">TRADE_HISTORY</div>
-        
+
         <h2 className="font-mono text-3xl md:text-4xl font-bold mb-8">
           Career <span className="text-primary">Positions</span>
         </h2>
@@ -82,7 +27,7 @@ export function ExperienceSection() {
 
         {/* Trade Rows */}
         <div className="space-y-2">
-          {experiences.map((exp, index) => (
+          {JOB_EXPERIENCE.map((exp, index) => (
             <motion.div
               key={exp.id}
               initial={{ opacity: 0, x: -20 }}
@@ -94,7 +39,9 @@ export function ExperienceSection() {
               {/* Main Row */}
               <div className="grid grid-cols-12 gap-4 p-4 items-center data-row cursor-pointer">
                 <div className="col-span-2">
-                  <span className="font-mono text-xs text-muted-foreground">{exp.id}</span>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {exp.id}
+                  </span>
                 </div>
                 <div className="col-span-3">
                   <div className="flex items-center gap-2">
@@ -106,7 +53,9 @@ export function ExperienceSection() {
                       <div className="font-mono text-xs text-muted-foreground">
                         {exp.role}
                         {exp.previousRole && (
-                          <span className="text-primary ml-1">↑ {exp.previousRole}</span>
+                          <span className="text-primary ml-1">
+                            ↑ {exp.previousRole}
+                          </span>
                         )}
                       </div>
                     </div>
@@ -120,7 +69,7 @@ export function ExperienceSection() {
                 </div>
                 <div className="col-span-2">
                   <div className="flex items-center gap-1 font-mono text-sm text-muted-foreground">
-                    {exp.status === 'ACTIVE' ? (
+                    {exp.status === "ACTIVE" ? (
                       <span className="text-primary">{exp.exit}</span>
                     ) : (
                       <>
@@ -131,17 +80,23 @@ export function ExperienceSection() {
                   </div>
                 </div>
                 <div className="col-span-1">
-                  <span className="font-mono text-sm text-muted-foreground">{exp.duration}</span>
+                  <span className="font-mono text-sm text-muted-foreground">
+                    {exp.duration}
+                  </span>
                 </div>
                 <div className="col-span-1">
-                  <span className="font-mono text-sm text-primary font-medium">{exp.performance}</span>
+                  <span className="font-mono text-sm text-primary font-medium">
+                    {exp.performance}
+                  </span>
                 </div>
                 <div className="col-span-1">
-                  <span className={`font-mono text-xs px-2 py-1 rounded ${
-                    exp.status === 'ACTIVE' 
-                      ? 'bg-primary/20 text-primary' 
-                      : 'bg-secondary text-muted-foreground'
-                  }`}>
+                  <span
+                    className={`font-mono text-xs px-2 py-1 rounded ${
+                      exp.status === "ACTIVE"
+                        ? "bg-primary/20 text-primary"
+                        : "bg-secondary text-muted-foreground"
+                    }`}
+                  >
                     {exp.status}
                   </span>
                 </div>
@@ -182,15 +137,21 @@ export function ExperienceSection() {
             <div className="flex items-center gap-6">
               <div>
                 <div className="metric-label">Total Positions</div>
-                <div className="font-mono text-xl font-bold text-foreground">{experiences.length}</div>
+                <div className="font-mono text-xl font-bold text-foreground">
+                  {JOB_EXPERIENCE.length}
+                </div>
               </div>
               <div>
                 <div className="metric-label">Career Duration</div>
-                <div className="font-mono text-xl font-bold text-foreground">8+ Years</div>
+                <div className="font-mono text-xl font-bold text-foreground">
+                  8+ Years
+                </div>
               </div>
               <div>
                 <div className="metric-label">Avg. Performance</div>
-                <div className="font-mono text-xl font-bold text-primary">+89%</div>
+                <div className="font-mono text-xl font-bold text-primary">
+                  +89%
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
