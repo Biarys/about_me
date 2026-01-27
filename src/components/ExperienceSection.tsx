@@ -6,10 +6,10 @@ export function ExperienceSection() {
   return (
     <section className="py-24" id="experience">
       <div className="container">
-        <div className="section-header">TRADE_HISTORY</div>
+        <div className="section-header">CAREER_POSITIONS</div>
 
         <h2 className="font-mono text-3xl md:text-4xl font-bold mb-8">
-          Career <span className="text-primary">Positions</span>
+          Trade <span className="text-primary">History</span>
         </h2>
 
         {/* Table Header */}
