@@ -45,9 +45,17 @@ export function HeroSection() {
 
           {/* Quick stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <StatCard label="Years Active" value="8+" change="+12% YoY" />
-            <StatCard label="Projects Shipped" value="50+" change="+23% QoQ" />
-            <StatCard label="Lines of Code" value="2.4M" change="+847K YTD" />
+            <StatCard
+              label="Years Active"
+              value={PERSONAL_INFO.years_of_experience + "+"}
+              change="+12% YoY"
+            />
+            <StatCard
+              label="Projects Shipped"
+              value={PERSONAL_INFO.projects_completed + "+"}
+              change="+23% QoQ"
+            />
+            <StatCard label="Lines of Code" value="420K" change="+69K YTD" />
             <StatCard label="Coffee/Day" value="∞" change="STABLE" warning />
           </div>
 
