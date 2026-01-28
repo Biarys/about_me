@@ -2,10 +2,14 @@
 export const TICKER_ITEMS = [
   { symbol: "REACT", value: "18.3.1", change: "+2.4%", positive: true },
   { symbol: "TS", value: "5.3.3", change: "+1.8%", positive: true },
-  { symbol: "NODE", value: "20.11", change: "+0.5%", positive: true },
+  { symbol: "SPARK", value: "4.1", change: "+0.5%", positive: true },
+  { symbol: "DJANGO", value: "6.0", change: "+1.15%", positive: true },
   { symbol: "PYTHON", value: "3.12", change: "+3.2%", positive: true },
-  { symbol: "RUST", value: "1.75", change: "+4.1%", positive: true },
-  { symbol: "GO", value: "1.22", change: "+1.2%", positive: true },
+  { symbol: "TERRAFORM", value: "1.14", change: "-4.1%", positive: false },
+  { symbol: "GO", value: "1.25", change: "+3.27%", positive: true },
+  { symbol: "BIGQUERY", value: "2.58", change: "+5.9%", positive: true },
+  { symbol: "FIREBASE", value: "7.1", change: "+4.04%", positive: true },
+  { symbol: "DOCKER", value: "4.58", change: "-1.2%", positive: false },
 ];
 
 // personal info for HeroSection and ContactSection
@@ -24,74 +28,59 @@ export const PERSONAL_INFO = {
 
 // skills data for SkillsSection
 export const SKILL_METRICS = [
-  { name: "TypeScript", level: 95, trend: "up", category: "Languages" },
+  { name: "Python", level: 95, trend: "up", category: "Languages" },
+  { name: "TypeScript", level: 85, trend: "up", category: "Languages" },
+  { name: "Spark", level: 92, trend: "stable", category: "Backend" },
   { name: "React", level: 92, trend: "up", category: "Frontend" },
-  { name: "Node.js", level: 88, trend: "stable", category: "Backend" },
-  { name: "Python", level: 85, trend: "up", category: "Languages" },
-  { name: "PostgreSQL", level: 82, trend: "up", category: "Database" },
+  { name: "Django", level: 88, trend: "up", category: "Backend" },
+  { name: "PostgreSQL", level: 82, trend: "stable", category: "Database" },
   { name: "AWS", level: 78, trend: "up", category: "Cloud" },
-  { name: "Docker", level: 80, trend: "stable", category: "DevOps" },
-  { name: "GraphQL", level: 75, trend: "up", category: "API" },
+  { name: "GCP", level: 78, trend: "up", category: "Cloud" },
+  { name: "Docker", level: 80, trend: "down", category: "DevOps" },
+  { name: "Terraform", level: 75, trend: "down", category: "DevOps" },
 ];
 
 // job experience data for ExperienceSection
 export const JOB_EXPERIENCE = [
   {
-    id: "TXN-2023-001",
-    company: "TechCorp Inc.",
-    role: "Senior Full-Stack Developer",
-    type: "LONG",
-    status: "ACTIVE",
-    entry: "2023-01",
-    exit: "Present",
-    duration: "2y+",
-    performance: "+156%",
-    description:
-      "Leading development of microservices architecture and real-time data pipelines.",
-    highlights: ["Team Lead", "System Design", "Mentorship"],
-  },
-  {
-    id: "TXN-2021-002",
+    id: "TSX-2021-003",
     company: "StartupX",
     role: "Full-Stack Developer",
-    previousRole: "Junior Developer",
-    type: "LONG",
+    // previousRole: "Junior Developer", // uncomment to show promotion badge
     status: "CLOSED",
-    entry: "2021-03",
-    exit: "2022-12",
-    duration: "1y 9m",
+    entry: "2021-08",
+    exit: "2024-09",
+    duration: "3y 1m",
     performance: "+89%",
     description:
-      "Built scalable e-commerce platform handling 100K+ daily transactions.",
-    highlights: ["Promotion", "React", "Node.js"],
+      "Developed and maintained ETL pipelines and API connectors for data ingestion.",
+    highlights: ["Python", "AWS", "GCP", "Spark"],
   },
   {
-    id: "TXN-2019-003",
-    company: "Agency Digital",
-    role: "Frontend Developer",
-    type: "LONG",
+    id: "TSX-2018-002",
+    company: "CIBC",
+    role: "Production Application Support Analyst",
     status: "CLOSED",
-    entry: "2019-06",
-    exit: "2021-02",
-    duration: "1y 8m",
+    entry: "2018-08",
+    exit: "2020-10",
+    duration: "2y 2m",
     performance: "+67%",
     description:
-      "Developed responsive web applications for Fortune 500 clients.",
-    highlights: ["Client Work", "Vue.js", "Performance"],
+      "Created ETL pipeline for tesing incoming changes and troubleshooted data issues.",
+    highlights: ["Python", "SQL", "AWS Chef"],
   },
   {
-    id: "TXN-2018-004",
-    company: "CodeLab Academy",
-    role: "Junior Developer",
-    type: "LONG",
+    id: "TSX-2018-001",
+    company: "Columbia International College",
+    role: "PHP Developer",
     status: "CLOSED",
-    entry: "2018-01",
-    exit: "2019-05",
-    duration: "1y 4m",
+    entry: "2018-04",
+    exit: "2018-12",
+    duration: "9m",
     performance: "+45%",
     description:
-      "Started career building internal tools and learning best practices.",
-    highlights: ["First Role", "Python", "SQL"],
+      "Developed internal web applications using provided UX templates.",
+    highlights: ["PHP", "SQL", "jQuery"],
   },
 ];
 
