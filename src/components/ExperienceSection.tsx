@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { TrendingUp, TrendingDown, Building2, Calendar } from "lucide-react";
-import { JOB_EXPERIENCE } from "@/constants/info";
+import { JOB_EXPERIENCE, PERSONAL_INFO } from "@/constants/info";
 
 export function ExperienceSection() {
   return (
@@ -144,7 +144,7 @@ export function ExperienceSection() {
               <div>
                 <div className="metric-label">Career Duration</div>
                 <div className="font-mono text-xl font-bold text-foreground">
-                  8+ Years
+                  {PERSONAL_INFO.years_of_experience + "+ Years"}
                 </div>
               </div>
               <div>
@@ -156,7 +156,9 @@ export function ExperienceSection() {
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Calendar className="w-4 h-4" />
-              <span className="font-mono text-xs">Last updated: 2024</span>
+              <span className="font-mono text-xs">
+                Last updated: {JOB_EXPERIENCE[0].exit}
+              </span>
             </div>
           </div>
         </motion.div>
