@@ -20,13 +20,9 @@ export default defineConfig(({ mode }) => ({
       minify: true,
       inject: {
         data: {
-          title: `${PERSONAL_INFO.firstName} | ${PERSONAL_INFO.title}`,
-          description: PERSONAL_INFO.bio.split(".")[0] + ".",
-          author: `${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`,
           ogTitle: `${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName} | ${PERSONAL_INFO.title}`,
           ogDescription: `${PERSONAL_INFO.bio.split(".")[0]}.`,
           ogUrl: "https://biarys.github.io/about_me/",
-          ogImage: `/about_me/icon.svg`,
         },
       },
     }),

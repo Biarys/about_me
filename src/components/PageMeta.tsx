@@ -16,7 +16,8 @@ export default function PageMeta() {
           name="author"
           content={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName}`}
         />
-        <meta
+        {/* Commented out to avoid duplication from vite-plugin-html (vite.config.ts)*/}
+        {/* <meta
           property="og:title"
           content={`${PERSONAL_INFO.firstName} ${PERSONAL_INFO.lastName} | ${PERSONAL_INFO.title}`}
         />
@@ -24,7 +25,7 @@ export default function PageMeta() {
           property="og:description"
           content={`${PERSONAL_INFO.bio.split(".")[0]}.`}
         />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="website" /> */}
       </Helmet>
     </div>
   );
