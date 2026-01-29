@@ -2,9 +2,12 @@ import { PERSONAL_INFO } from "@/constants/info";
 import { Helmet } from "react-helmet-async";
 
 export default function PageMeta() {
+  const iconHref = `${import.meta.env.BASE_URL}icon.svg`;
+
   return (
     <div>
       <Helmet>
+        <link rel="icon" href={iconHref} />
         <title>
           {PERSONAL_INFO.firstName} | {PERSONAL_INFO.title}
         </title>
