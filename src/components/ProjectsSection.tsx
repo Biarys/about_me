@@ -3,6 +3,19 @@ import { ExternalLink, Github, Star, GitFork } from "lucide-react";
 import { PROJECTS } from "@/constants/info";
 
 export function ProjectsSection() {
+  const getStatusClass = (status: string) => {
+    switch (status) {
+      case "IN DEVELOPMENT":
+        return "bg-primary/20 text-primary";
+      case "PAUSED":
+        return "bg-warning/20 text-warning";
+      case "STATIC":
+        return "bg-accent/20 text-accent";
+      default:
+        return "bg-secondary text-muted-foreground";
+    }
+  };
+
   return (
     <section className="py-24" id="projects">
       <div className="container">
@@ -34,11 +47,9 @@ export function ProjectsSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span
-                    className={`font-mono text-xs px-2 py-1 rounded ${
-                      project.status === "ACTIVE"
-                        ? "bg-primary/20 text-primary"
-                        : "bg-secondary text-muted-foreground"
-                    }`}
+                    className={`font-mono text-xs px-2 py-1 rounded ${getStatusClass(
+                      project.status,
+                    )}`}
                   >
                     {project.status}
                   </span>
@@ -73,9 +84,9 @@ export function ProjectsSection() {
                     <GitFork className="w-4 h-4" />
                     <span className="font-mono text-sm">{project.forks}</span>
                   </div>
-                  <span className="font-mono text-sm text-primary">
+                  {/* <span className="font-mono text-sm text-primary">
                     {project.change}
-                  </span>
+                  </span> */}
                 </div>
 
                 <a
