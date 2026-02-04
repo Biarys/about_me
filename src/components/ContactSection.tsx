@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Send, Terminal, Clock, MapPin } from "lucide-react";
 import { useState } from "react";
 import { PERSONAL_INFO } from "@/constants/info";
+import emailjs from "@emailjs/browser";
+
+emailjs.init({ publicKey: "GHazbMEjy5OwBgt4d" });
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -11,15 +14,24 @@ export function ContactSection() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate sending
-    setTimeout(() => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    try {
+      emailjs.send("service_x0bcrw4", "template_hfctupt", {
+        title: "Contact from Biarys.io by " + formData.name,
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
+    } catch (e) {
+      console.log(e);
+    } finally {
       setStatus("sent");
-      setFormData({ name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+    }
   };
 
   return (
